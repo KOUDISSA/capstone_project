@@ -22,3 +22,6 @@ class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
         fields = '__all__'
+        extra_kwargs = {
+            'no_of_guests': {'min_value': 1}
+        }
