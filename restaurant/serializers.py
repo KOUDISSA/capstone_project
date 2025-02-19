@@ -13,7 +13,7 @@ class MenuItemSerializer(serializers.ModelSerializer):
             'title' : {'validators': [UniqueValidator(
                 queryset=Menu.objects.all()             #unique validation
             )]},
-            'price' : {'min_value': 2}, #minimum value
+            'price' : {'min_value': 2.00}, #minimum value
             'stock': {'source': 'inventory', 'min_value': 0}
         }
         
@@ -23,5 +23,5 @@ class BookingSerializer(serializers.ModelSerializer):
         model = Booking
         fields = '__all__'
         extra_kwargs = {
-            'no_of_guests': {'min_value': 1}
+            'no_of_guests': {'min_value': 1} # number of guests minimum value
         }
